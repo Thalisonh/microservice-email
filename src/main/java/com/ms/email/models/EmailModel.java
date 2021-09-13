@@ -5,6 +5,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Table(name = "tb_email")
@@ -12,7 +13,7 @@ public class EmailModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long emailId;
+    private UUID emailId;
     private String ownerRef;
     private String emailFrom;
     private String emailTo;
@@ -25,7 +26,7 @@ public class EmailModel {
     public EmailModel() {
     }
 
-    public EmailModel(Long emailId, String ownerRef, String emailFrom, String emailTo, String subject, String text, LocalDateTime sendDataEmail, StatusEmail statusEmail) {
+    public EmailModel(UUID emailId, String ownerRef, String emailFrom, String emailTo, String subject, String text, LocalDateTime sendDataEmail, StatusEmail statusEmail) {
         this.emailId = emailId;
         this.ownerRef = ownerRef;
         this.emailFrom = emailFrom;
@@ -36,11 +37,11 @@ public class EmailModel {
         this.statusEmail = statusEmail;
     }
 
-    public Long getEmailId() {
+    public UUID getEmailId() {
         return emailId;
     }
 
-    public void setEmailId(Long emailId) {
+    public void setEmailId(UUID emailId) {
         this.emailId = emailId;
     }
 
