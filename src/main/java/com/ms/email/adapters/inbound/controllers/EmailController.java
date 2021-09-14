@@ -1,8 +1,8 @@
-package com.ms.email.controller;
+package com.ms.email.adapters.inbound.controllers;
 
-import com.ms.email.dtos.EmailDTO;
-import com.ms.email.models.EmailModel;
-import com.ms.email.services.EmailService;
+import com.ms.email.adapters.inbound.dtos.EmailDTO;
+import com.ms.email.application.entities.EmailModel;
+import com.ms.email.application.service.EmailServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +17,7 @@ import javax.validation.Valid;
 public class EmailController {
 
     @Autowired
-    private EmailService service;
+    private EmailServiceImpl service;
 
     @PostMapping("/sending-email")
     public ResponseEntity<EmailModel> sendingEmail(@RequestBody @Valid EmailDTO dto){
